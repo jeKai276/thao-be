@@ -476,6 +476,10 @@ PINS.forEach(p=>{
       return;
     }
 
+    // Report successful signup to VWO only when Supabase has no error.
+    window.vwoCode = window.vwoCode || [];
+    window.vwoCode.push(['track.goal', 'sign_up_success']);
+
     // Signup success -> hide hero overlay + show welcome message.
     hideOverlay();
     // Signup may or may not create an active session depending on Supabase settings.
